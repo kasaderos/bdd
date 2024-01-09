@@ -1,0 +1,30 @@
+Feature: send to scoring
+	Send order to banks.
+
+	Scenario: default send order to scoring
+		When Send following order:
+			type: 'online',
+		      platform: 'web',
+		      iin: '990101350361',
+		      mobile_phone: '+77771234567',
+		      subdivision_id: 'subdiv',
+		      city_id: 'city',
+			goods: '[{
+				id: 'iphone',
+				name: 'iphone X',
+				brand: ''
+			}]',
+		      sms_code: '3301',
+		      delivery_type: 'delivery',
+		      delivery_address: 'Baytursynova 126',
+		      amount: '100000',
+		      email: 'berda99@gmail.com',
+			success_url: 'http://success.kz',
+			failure_url: 'http://failure.kz',
+		      sms_ts: '30s ago',
+		      receipt_request_id: 'receipt_req',
+		      shop_receipt_request_id: 'shop_receipt_req',
+		      shop_receipt_request_created_at: '30s ago'
+		Then Expect:
+			error: 'no error',
+			scoring_status: 'approved'

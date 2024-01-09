@@ -1,0 +1,7 @@
+.idea
+.vscode/
+bin/
+.docker/
+*.swp
+*.curl
+*.out
